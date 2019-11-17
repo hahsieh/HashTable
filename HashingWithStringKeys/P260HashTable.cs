@@ -1,4 +1,22 @@
-﻿using System;
+﻿/************************************************************** 
+*	Course:     PROG 260 
+*	Instructor: Dennis Minium 
+*	Term:       Fall 2019 
+*
+*	Programmer: Hui-An Hsieh, Dennis Minium
+*	Assignment: Homework 5 - Hash Table Collisions 
+*	
+*	Description:
+*	To handle collisions using a chaining technique implemented with a .NET generic LinkedList<T>.
+*	Set the Console.ForegroundColor to DarkRed when displaying the collision messages.
+* 
+*	Revision    Date               Release Comment 
+*	--------     ----------        ------------------------ 
+*	1.0         11/10/2019         Initial Release *	
+* 
+*/
+
+using System;
 using System.Collections.Generic;
 
 namespace HashingWithStringKeys

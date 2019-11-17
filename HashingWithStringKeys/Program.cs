@@ -1,8 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/************************************************************** 
+*	Course:     PROG 260 
+*	Instructor: Dennis Minium 
+*	Term:       Fall 2019 
+*
+*	Programmer: Hui-An Hsieh, Dennis Minium
+*	Assignment: Homework 5 - Hash Table Collisions 
+*	
+*	Description:
+*	After the users input the hash table size, make the program sequentially display  
+    1. the initial load of hash table, 
+    2. initial hash table state,
+    3. and the total number of collisions
+    4. asking CURD operation. 
+    Move the variable declarations to the top of the code block 
+    Remove the commented-out code.
+
+*	Revision    Date               Release Comment 
+*	--------     ----------        ------------------------ 
+*	1.0         11/10/2019         Initial Release *	
+* 
+*/
 using static System.Console;
 
 namespace HashingWithStringKeys
@@ -11,6 +28,11 @@ namespace HashingWithStringKeys
     {
         static void Main(string[] args)
         {
+            P260HashTable teams;
+            string[] teamNames = LoadTeamTable();
+            string[] teamLocations = LoadTeamLocation();
+            KeyAndValue team;
+
             Write("Enter the number of elements your hash table will hold: ");
             int.TryParse(ReadLine(), out int numberOfElements);
             if(numberOfElements == 0)
@@ -18,10 +40,7 @@ namespace HashingWithStringKeys
                 WriteLine("Invalid value.  Defaulting to 30.");
                 numberOfElements = 30;
             }
-            P260HashTable teams = new P260HashTable(numberOfElements);
-            string[] teamNames = LoadTeamTable();
-            string[] teamLocations = LoadTeamLocation();
-            KeyAndValue team;
+            teams = new P260HashTable(numberOfElements);
 
             WriteLine();
             //Add each entry from the parallel team name and location arrays to the dictionary
@@ -31,6 +50,9 @@ namespace HashingWithStringKeys
             {
                 teams.AddItem(teamNames[i], teamLocations[i]);
             }
+
+            WriteLine("\nInitial hash table state: ");
+            teams.PrintTableState();
 
             //CRUD operations on items
             do
